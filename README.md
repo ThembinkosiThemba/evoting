@@ -1,66 +1,30 @@
-## Foundry
+## Evoting
+This is a simple evoting system using Solidity.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+The idea is to create one contract per ballot, providing a short name for each option. Then the creator of the contract who serves as chairperson will give the right to vote to each address individually.
 
-Foundry consists of:
+The persons behind the addresses can then choose to either vote themselves or to delegate their vote to a person they trust.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+At the end of the voting time, winningProposal() will return the proposal with the largest number of votes.
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
+## Getting Started
 
 ### Build
 
-```shell
-$ forge build
+```sh
+git clone https://github.com/ThembinkosiThemba/evoting.git
+cd evoting
+forge build
+```
+
+### Running the project
+```sh
+anvil
+forge script script/Voter.s.sol --rpc-url http://localhost:8545 --broadcast
 ```
 
 ### Test
 
 ```shell
 $ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
 ```
